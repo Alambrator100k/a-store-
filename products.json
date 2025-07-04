@@ -1,0 +1,56 @@
+[
+    {
+        "name": "ساعة ذكية",
+        "price": "250",
+        "description": "ساعة مقاومة للماء بخاصية تتبع اللياقة.",
+        "image": "watch.jpg"
+    },
+    {
+        "name": "سماعات بلوتوث",
+        "price": "180",
+        "description": "سماعات بجودة صوت عالية وتقنية عزل الضوضاء.",
+        "image": "earbuds.jpg"
+    },
+    {
+        "name": "باور بانك",
+        "price": "150",
+        "description": "بطارية محمولة بسعة 10000mAh وشحن سريع.",
+        "image": "powerbank.jpg"
+    },
+    {
+        "name": "كيبورد ميكانيكي",
+        "price": "320",
+        "description": "كيبورد بإضاءة RGB ومفاتيح ميكانيكية.",
+        "image": "keyboard.jpg"
+    },
+    {
+        "name": "ماوس ألعاب",
+        "price": "120",
+        "description": "ماوس بدقة عالية RGB للألعاب.",
+        "image": "mouse.jpg"
+    },
+    {
+        "name": "شاحن سريع",
+        "price": "90",
+        "description": "شاحن يدعم QC 3.0 لأجهزة الأندرويد.",
+        "image": "charger.jpg"
+    },
+    {
+        "name": "سماعة رأس",
+        "price": "230",
+        "description": "سماعة مريحة وعازلة للضوضاء.",
+        "image": "headset.jpg"
+    },
+    {
+        "name": "حافظة موبايل",
+        "price": "50",
+        "description": "حافظة شفافة ضد الصدمات.",
+        "image": "case.jpg"
+    },
+    {
+        "name": "مكبر صوت",
+        "price": "300",
+        "description": "مكبر صوت بلوتوث بصوت عالي الجودة.",
+        "image": "speaker.jpg"
+    }
+]
