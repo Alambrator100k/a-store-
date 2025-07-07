@@ -17,7 +17,6 @@
       position: relative;
     }
 
-    /* شبكة البيانات المتحركة */
     #network-bg {
       position: fixed;
       top: 0;
@@ -94,7 +93,6 @@
       to {transform: scale(1); opacity: 1;}
     }
 
-    /* تحسينات للهاتف */
     @media (max-width: 768px) {
       .card {
         margin-bottom: 15px;
@@ -116,10 +114,8 @@
 </head>
 <body class="bg-dark text-white">
 
-  <!-- شبكة البيانات المتحركة -->
   <canvas id="network-bg"></canvas>
 
-  <!-- شريط التنقل -->
   <nav class="navbar navbar-expand-lg bg-black shadow">
     <div class="container">
       <a class="navbar-brand text-white" href="#">💼 متجر الإمبراطور</a>
@@ -136,13 +132,11 @@
     </div>
   </nav>
 
-  <!-- المنتجات -->
   <div class="container py-4">
     <h1 class="text-center mb-4">📦 معرض المنتجات</h1>
     <div id="product-list" class="row g-3"></div>
   </div>
 
-  <!-- نافذة الطلب -->
   <div id="popup-form" class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-75 d-none" style="z-index:9999;">
     <div class="d-flex justify-content-center align-items-center h-100">
       <div class="bg-light text-dark p-4 rounded shadow" style="width: 320px;">
@@ -157,7 +151,6 @@
     </div>
   </div>
 
-  <!-- سكربت المنتجات -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const phoneNumber = "201080482163";
@@ -165,12 +158,12 @@
     function openOrderForm(productName = '') {
       document.getElementById('popup-form').classList.remove('d-none');
       document.getElementById('popupProduct').value = productName;
-      document.body.style.overflow = 'hidden'; // منع التمرير عند فتح النافذة
+      document.body.style.overflow = 'hidden';
     }
 
     function closeOrderForm() {
       document.getElementById('popup-form').classList.add('d-none');
-      document.body.style.overflow = 'auto'; // إعادة التمرير عند الإغلاق
+      document.body.style.overflow = 'auto';
     }
 
     function sendToWhatsApp() {
@@ -186,7 +179,6 @@
       window.open(`https://wa.me/${phoneNumber}?text=${msg}`, '_blank');
     }
 
-    // بيانات المنتجات الافتراضية (يمكن استبدالها بطلب AJAX لملف products.json)
     const defaultProducts = [
       {
         "name": "منتج 1",
@@ -212,7 +204,6 @@
       const container = document.getElementById('product-list');
       
       try {
-        // محاولة جلب البيانات من ملف products.json
         fetch('products.json')
           .then(res => res.json())
           .then(products => renderProducts(products))
@@ -232,7 +223,7 @@
 
         col.innerHTML = `
           <div class="card bg-light text-dark h-100 shadow-sm">
-            <img src="images/${p.image}" class="card-img-top" height="200" style="cursor:pointer; object-fit: cover;" onclick="toggleDetails(${index})">
+            <img src="${p.image}" class="card-img-top" height="200" style="cursor:pointer; object-fit: cover;" onclick="toggleDetails(${index})">
             <div class="card-body text-center">
               <h5 class="card-title">${p.name}</h5>
               <div class="details mt-3" id="details-${index}">
@@ -252,7 +243,6 @@
       details.classList.toggle('open');
     }
 
-    // كود شبكة البيانات المتحركة
     document.addEventListener('DOMContentLoaded', function() {
       loadProducts();
       
@@ -262,12 +252,10 @@
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       
-      // نقاط الشبكة
       const points = [];
       const numPoints = window.innerWidth < 768 ? 20 : 30;
       const maxDistance = window.innerWidth < 768 ? 150 : 200;
       
-      // إنشاء النقاط
       for (let i = 0; i < numPoints; i++) {
         points.push({
           x: Math.random() * canvas.width,
@@ -280,17 +268,14 @@
       function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        // تحديث مواقع النقاط
         points.forEach(point => {
           point.x += point.vx;
           point.y += point.vy;
           
-          // ارتداد من الحواف
           if (point.x < 0 || point.x > canvas.width) point.vx *= -1;
           if (point.y < 0 || point.y > canvas.height) point.vy *= -1;
         });
         
-        // رسم الخطوط بين النقاط القريبة
         ctx.strokeStyle = '#00ff00';
         ctx.lineWidth = 0.5;
         
@@ -311,7 +296,6 @@
           }
         }
         
-        // رسم النقاط
         ctx.fillStyle = '#00ff00';
         ctx.globalAlpha = 0.5;
         points.forEach(point => {
@@ -325,7 +309,6 @@
       
       animate();
       
-      // إعادة ضبط الحجم عند تغيير حجم النافذة
       window.addEventListener('resize', function() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -333,4 +316,4 @@
     });
   </script>
 </body>
-        </html>
+</html>
